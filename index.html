@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudentEssentials - Your Campus Survival Kit</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome via CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-container">
+          <a href="index.html" class="logo">
+            <img src="dhbw_logo.png" alt="StudentEssentials Logo">
+          </a>
+          <nav class="nav">
+            <ul class="nav-menu">
+              <li class="nav-item">
+                <a href="index.html" class="nav-link">Home</a>
+              </li>
+              <li class="nav-item">
+                <a href="shop.html" class="nav-link">Shop</a>
+              </li>
+              <li class="nav-item">
+                <a href="#categories" class="nav-link">Categories</a>
+              </li>
+              <li class="nav-item">
+                <a href="about-us.html" class="nav-link">About Us</a>
+              </li>
+              <li class="nav-item">
+                <div class="search-bar">
+                  <input type="text" placeholder="Search for products..." aria-label="Search" id="product-search">
+                  <i class="fas fa-search search-icon"></i>
+                </div>
+              </li>
+            </ul>
+            <div class="cart-container" id="cart-container">
+              <div class="cart-icon">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count" id="cart-count">0</span>
+              </div>
+              <div class="cart-dropdown" id="cart-dropdown">
+                <h3>Your Cart</h3>
+                <div class="cart-items" id="cart-items">
+                  <!-- Cart items will be populated by JavaScript -->
+                  <div class="empty-cart" id="empty-cart">Your cart is empty</div>
+                </div>
+                <div class="cart-total" id="cart-total-container" style="display: none;">
+                  <span>Total:</span>
+                  <span id="cart-total">$0.00</span>
+                </div>
+                <div class="cart-buttons" id="cart-buttons" style="display: none;">
+                  <button class="btn btn-outline" id="clear-cart">Clear Cart</button>
+                  <button class="btn btn-primary" id="checkout">Checkout</button>
+                </div>
+              </div>
+            </div>
+            <button id="mobile-toggle" class="mobile-toggle">
+              <i class="fas fa-bars"></i>
+            </button>
+          </nav>
+        </div>
+      </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <img src="shop0.png" alt="Student Essentials Banner" class="hero-image">
+        <div class="container">
+            <div class="hero-content">
+                <h1>StudentEssentials</h1>
+                <p>A collection of everything a student could need - from exam results over tutoring to condoms - shop
+                    our essentials now!</p>
+                <a href="shop.html" class="btn btn-primary">Shop Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Category Navigation -->
+    <div class="category-nav">
+        <div class="container">
+            <ul class="category-list">
+                <li class="category-item">Prüfungslösungen</li>
+                <li class="category-item">Tutoring</li>
+                <li class="category-item">Dokumente</li>
+                <li class="category-item">After School Essentials</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Student Favorites Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Student Favorites</h2>
+                <a href="shop.html" class="btn btn-primary">View All</a>
+            </div>
+            <div class="product-grid">
+                <!-- Product Card 1 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="1140-joyfulwomandancing.jpg" alt="Exmatrikulation">
+                        <span class="product-badge">Popular</span>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Exmatrikulation</h3>
+                        <p class="product-category">Antrag</p>
+                        <div class="product-meta">
+                            <span class="product-price">2.99 EUR</span>
+                            <a href="#" class="add-to-cart">
+                                <i class="fas fa-shopping-cart"></i> Add
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 2 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="64_GS_-_Event-Teaser_-_1200_x_900_px_-_240711.jpg" alt="Mathe1">
+                        <span class="product-badge">Hot</span>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Mathe1</h3>
+                        <p class="product-category">Prüfungslösung</p>
+                        <div class="product-meta">
+                            <span class="product-price">29.99 EUR</span>
+                            <a href="#" class="add-to-cart">
+                                <i class="fas fa-shopping-cart"></i> Add
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 3 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="hieroglyphics-429863-960-720-hieroglyphen-b.jpeg" alt="Mathe2">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Mathe2</h3>
+                        <p class="product-category">Prüfungslösung</p>
+                        <div class="product-meta">
+                            <span class="product-price">29.99 EUR</span>
+                            <a href="#" class="add-to-cart">
+                                <i class="fas fa-shopping-cart"></i> Add
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 4 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <div
+                            style="background-color: #e0e0e0; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-image" style="font-size: 48px; color: #999;"></i>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Meenes Tochter</h3>
+                        <p class="product-category">Handynummer</p>
+                        <div class="product-meta">
+                            <span class="product-price">30.99 EUR</span>
+                            <a href="#" class="add-to-cart">
+                                <i class="fas fa-shopping-cart"></i> Add
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section id="categories" class="categories-section">
+        <div class="container">
+            <h2 class="categories-title">Browse By Category</h2>
+            <div class="categories-grid">
+                <!-- Category 1 -->
+                <div class="category-card">
+                    <img src="teaser-pruefungsvorbereitung.jpg" alt="Prüfungslösungen">
+                    <div class="category-content">
+                        <h3>Prüfungslösungen</h3>
+                        <p>Mathe, Fortgeschrittene Programmierung, ...</p>
+                    </div>
+                </div>
+
+                <!-- Category 2 -->
+                <div class="category-card">
+                    <img src="IMG_6316 14.35.15.jpg" alt="Tutoring">
+                    <div class="category-content">
+                        <h3>Tutoring</h3>
+                        <p>Mit Profi Niggo und anderen Experten</p>
+                    </div>
+                </div>
+
+                <!-- Category 3 -->
+                <div class="category-card">
+                    <img src="dokumentenlenkung.jpg" alt="Documente">
+                    <div class="category-content">
+                        <h3>Dokumente</h3>
+                        <p>Exmatrikulationsantrag, Krankmeldung, ...</p>
+                    </div>
+                </div>
+
+                <!-- Category 4 -->
+                <div class="category-card">
+                    <img src="IMG_2467 14.35.15.jpg" alt="After School Essentials">
+                    <div class="category-content">
+                        <h3>After School Essentials</h3>
+                        <p>Snus, Türkentasche, Bier, ...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Latest Exams Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Latest Exams</h2>
+                <a href="shop.html" class="btn btn-primary">View All</a>
+            </div>
+            <div class="product-grid">
+                <!-- Exam Card 1 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <div
+                            style="background-color: #e0e0e0; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-file-alt" style="font-size: 48px; color: #999;"></i>
+                        </div>
+                        <span class="product-badge">New</span>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Mathe 1: Mayer</h3>
+                        <p class="product-category">Grundlagen</p>
+                        <div class="product-meta">
+                            <span class="product-price">19.99 EUR</span>
+                            <a href="#" class="add-to-cart">
+                                <i class="fas fa-shopping-cart"></i> Add
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Exam Card 2 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <div
+                            style="background-color: #e0e0e0; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-file-alt" style="font-size: 48px; color: #999;"></i>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Mathe 2: Nakou</h3>
+                        <p class="product-category">Fortgeschritten</p>
+                        <div class="product-meta">
+                            <span class="product-price">24.99 EUR</span>
+                            <a href="#" class="add-to-cart">
+                                <i class="fas fa-shopping-cart"></i> Add
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Exam Card 3 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <div
+                            style="background-color: #e0e0e0; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-file-alt" style="font-size: 48px; color: #999;"></i>
+                        </div>
+                        <span class="product-badge">Hot</span>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Python: Wiessler</h3>
+                        <p class="product-category">Grundlagen</p>
+                        <div class="product-meta">
+                            <span class="product-price">22.99 EUR</span>
+                            <a href="#" class="add-to-cart">
+                                <i class="fas fa-shopping-cart"></i> Add
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="container">
+            <div class="section-header centered">
+                <h2 class="section-title">Was unsere Kunden sagen</h2>
+            </div>
+            <div class="testimonials-slider">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"Ohne die Prüfungslösungen von StudentEssentials hätte ich mein Mathe-Modul niemals bestanden! Absolute Lebensretter!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="/api/placeholder/60/60" alt="User" class="testimonial-avatar">
+                        <div class="testimonial-info">
+                            <h4>Danny</h4>
+                            <p>Data Science und KI Student</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <p>"Niggo ist der beste Tutor, den ich je hatte. Nach einer Session mit ihm habe ich Python endlich verstanden. Klare Empfehlung!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="/api/placeholder/60/60" alt="User" class="testimonial-avatar">
+                        <div class="testimonial-info">
+                            <h4>Marie S.</h4>
+                            <p>BWL-Studentin</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"Die After-School-Essentials kommen immer pünktlich und zu fairen Preisen. Perfekt für alle Partys und langen Lernabende!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="/api/placeholder/60/60" alt="User" class="testimonial-avatar">
+                        <div class="testimonial-info">
+                            <h4>Tim B.</h4>
+                            <p>Wirtschaftsingenieur</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Us Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h2 class="section-title">Kontaktiere uns</h2>
+                    <p>Hast du Fragen oder möchtest du mit uns zusammenarbeiten? Wir freuen uns, von dir zu hören!</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>info@studentessentials.de</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>+49 123 456789</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>DHBW Campus, 79539 Lörrach</span>
+                        </div>
+                    </div>
+                    <div class="social-links contact-social">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-Mail</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Betreff</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Nachricht</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Nachricht senden</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-header centered">
+                <h2 class="section-title">Häufig gestellte Fragen</h2>
+            </div>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Wie legal sind eure Prüfungslösungen?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Unsere Prüfungslösungen sind Studienmaterialien, die dir beim Lernen helfen sollen. Wir stellen alte Klausuren und Lösungswege zur Verfügung, die von Studenten erstellt wurden, die die Prüfungen bereits bestanden haben.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Wie funktioniert das Tutoring?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Nach der Buchung eines Tutoring-Angebots wirst du mit einem unserer qualifizierten Tutoren verbunden. Die Sessions können online oder persönlich stattfinden, je nach Verfügbarkeit und deinen Präferenzen.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Wie schnell liefert ihr After-School-Essentials?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Wir liefern After-School-Essentials in der Regel innerhalb von 60 Minuten auf dem Campus. Für bestimmte Zeiten und besondere Events empfehlen wir eine Vorbestellung.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Kann ich meine eigenen Materialien verkaufen?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Ja, wir sind immer auf der Suche nach qualitativ hochwertigen Lernmaterialien. Wenn du eigene Prüfungslösungen oder Zusammenfassungen verkaufen möchtest, kontaktiere uns einfach über das Formular.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Join us Banner -->
+    <section class="join-banner">
+        <div class="container">
+            <div class="join-content">
+                <h2>Werde Teil der StudentEssentials-Community</h2>
+                <p>Erhalte exklusive Angebote, Rabatte und Neuigkeiten direkt in dein Postfach.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Deine E-Mail-Adresse" required>
+                    <button type="submit" class="btn btn-primary">Abonnieren</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-about">
+                <a href="index.html" class="footer-logo">
+                    <img src="dhbw_logo.png" alt="StudentEssentials Logo" height="50">
+                </a>
+                <p>StudentEssentials provides everything a student could need for their academic and personal life on campus. From exam solutions to everyday essentials.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-nav">
+                <h4>Shop</h4>
+                <ul>
+                    <li><a href="#">Prüfungslösungen</a></li>
+                    <li><a href="#">Tutoring</a></li>
+                    <li><a href="#">Dokumente</a></li>
+                    <li><a href="#">After School Essentials</a></li>
+                </ul>
+            </div>
+            <div class="footer-nav">
+                <h4>Account</h4>
+                <ul>
+                    <li><a href="#">My Account</a></li>
+                    <li><a href="#">Order History</a></li>
+                    <li><a href="#">Wishlist</a></li>
+                    <li><a href="#">Newsletter</a></li>
+                </ul>
+            </div>
+            <div class="footer-nav">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <p>&copy; 2025 StudentEssentials. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- External JavaScript -->
+    <script src="shoppingcard.js"></script>
+    <script>
+        // Simple FAQ toggle
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const faqItem = question.parentElement;
+                const isActive = faqItem.classList.contains('active');
+                
+                // Close all FAQs
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.classList.remove('active');
+                    item.querySelector('.faq-toggle i').className = 'fas fa-plus';
+                });
+                
+                // If the clicked FAQ wasn't active, open it
+                if (!isActive) {
+                    faqItem.classList.add('active');
+                    question.querySelector('.faq-toggle i').className = 'fas fa-minus';
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>
+                           
