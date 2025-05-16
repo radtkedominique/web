@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produktdetails - student-essentials</title>
+    <link rel="stylesheet" href="./article.css">
+</head>
+
+<body>
+    <div class="head">
+        <header>
+            <img src="images/dhbw_logo.png" alt="dhbw-logo">
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="shop.html">zurück</a></li>
+                    <li><a href="#about us">about us</a></li>
+                    <li><a href="#categories">categories</a></li>
+                    <li><a href="#shop">shop</a></li>
+                    <li>
+                        <div class="search">
+                            <input type="text" class="searchTerm" placeholder="Search...">
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+    </div>
+
+    <div class="product-container">
+        <div class="product-image">
+            <img id="product-img" src="images/1140-joyfulwomandancing.jpg" alt="Produktbild">
+        </div>
+        
+        <div class="product-details">
+            <h1 id="product-title">Produktname</h1>
+            <div class="product-meta">
+                <span id="product-category" class="category-tag">Kategorie</span>
+                <span id="product-price" class="price">29.99 EUR</span>
+            </div>
+            
+            <div class="product-description">
+                <p id="product-desc">Ausführliche Produktbeschreibung. Hier werden alle Details zum Produkt angezeigt.</p>
+            </div>
+            
+            <div class="product-actions">
+                <button class="buy-btn">Jetzt kaufen</button>
+                <button class="cart-btn">In den Warenkorb</button>
+            </div>
+            
+            <div class="product-info">
+                <div class="info-section">
+                    <h3>Details</h3>
+                    <ul id="product-details-list">
+                        <li>Format: PDF</li>
+                        <li>Seitenzahl: 15</li>
+                        <li>Größe: 2.4 MB</li>
+                        <li>Aktualität: Sommersemester 2024</li>
+                    </ul>
+                </div>
+                
+                <div class="info-section">
+                    <h3>Kundenbewertungen</h3>
+                    <div class="rating">
+                        <span class="stars">★★★★☆</span>
+                        <span class="count">(12 Bewertungen)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="related-products">
+        <h2>Ähnliche Produkte</h2>
+        <div class="card-grid">
+            <div class="card" data-category="Prüfungslösungen">
+                <img src="images/64_GS_-_Event-Teaser_-_1200_x_900_px_-_240711.jpg" alt="">
+                <h3>Mathe1</h3>
+                <h3 class="price">29.99 EUR</h3>
+                <p>Prüfungslösung</p>
+            </div>
+            
+            <div class="card" data-category="Prüfungslösungen">
+                <img src="images/hieroglyphics-429863-960-720-hieroglyphen-b.jpeg" alt="">
+                <h3>Mathe2</h3>
+                <h3 class="price">29.99 EUR</h3>
+                <p>Prüfungslösung</p>
+            </div>
+            
+            <div class="card" data-category="Dokumente">
+                <img src="images/1140-joyfulwomandancing.jpg" alt="">
+                <h3>Exmatrikulation</h3>
+                <h3 class="price">2.99 EUR</h3>
+                <p>Antrag</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Get URL parameters to load the correct product
+        const urlParams = new URLSearchParams(window.location.search);
+        const productId = urlParams.get('id');
+        
+        // This would normally fetch product data from a database
+        // For demo purposes, we'll use dummy data
+        document.addEventListener('DOMContentLoaded', function() {
+            // Example of how you would populate product data
+            // In a real implementation, you would fetch this data based on productId
+            if (productId) {
+                // Example of setting data dynamically
+                document.getElementById('product-title').textContent = 'Mathe1 Prüfungslösung';
+                document.getElementById('product-category').textContent = 'Prüfungslösungen';
+                document.getElementById('product-price').textContent = '29.99 EUR';
+                document.getElementById('product-desc').textContent = 
+                    'Vollständige Lösung der Mathe1 Klausur vom Wintersemester 2024/25. ' +
+                    'Enthält alle Aufgaben mit ausführlichen Lösungswegen und Erklärungen. ' +
+                    'Ideal zur Prüfungsvorbereitung.';
+                document.getElementById('product-img').src = 'images/64_GS_-_Event-Teaser_-_1200_x_900_px_-_240711.jpg';
+            }
+        });
+        
+        // Add event listeners for the card links in related products
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('click', function() {
+                // In a real implementation, you would navigate to the product page with the correct ID
+                const category = this.dataset.category;
+                const title = this.querySelector('h3').textContent;
+                console.log(`Clicked on ${title} from ${category}`);
+                // window.location.href = `article.html?id=${productId}`;
+            });
+        });
+    </script>
+</body>
+</html>
