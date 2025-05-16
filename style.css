@@ -383,7 +383,7 @@ img {
 .hero-content {
     position: absolute;
     top: 50%;
-    left: 70px;
+    left: 250px;
     transform: translateY(-50%);
     max-width: 500px;
     color: rgb(0, 0, 0);

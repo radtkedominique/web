@@ -1,5 +1,4 @@
 // Shop Page JavaScript
-
 document.addEventListener('DOMContentLoaded', function() {
     // Elements
     const filterToggle = document.getElementById('filter-toggle');
@@ -35,139 +34,6 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         search: ''
     };
-
-    // Toggle filter sidebar on mobile
-    filterToggle.addEventListener('click', function() {
-        filterSidebar.classList.toggle('active');
-        overlay.classList.toggle('active');
-        
-        if(filterSidebar.classList.contains('active')) {
-            filterToggle.innerHTML = '<i class="fas fa-times"></i> Hide Filters';
-            document.body.style.overflow = 'hidden';
-        } else {
-            filterToggle.innerHTML = '<i class="fas fa-filter"></i> Show Filters';
-            document.body.style.overflow = '';
-        }
-    });
-
-    // Hide sidebar when clicking overlay
-    overlay.addEventListener('click', function() {
-        filterSidebar.classList.remove('active');
-        overlay.classList.remove('active');
-        filterToggle.innerHTML = '<i class="fas fa-filter"></i> Show Filters';
-        document.body.style.overflow = '';
-    });
-
-    // Price slider functionality
-    function updateSliderRange() {
-        const minVal = parseInt(minRangeInput.value);
-        const maxVal = parseInt(maxRangeInput.value);
-        
-        if (minVal > maxVal) {
-            minRangeInput.value = maxVal;
-        }
-        
-        const percent1 = (minVal / parseInt(minRangeInput.max)) * 100;
-        const percent2 = (maxVal / parseInt(maxRangeInput.max)) * 100;
-        
-        sliderTrack.style.left = percent1 + '%';
-        sliderTrack.style.width = (percent2 - percent1) + '%';
-        
-        minPriceInput.value = minVal;
-        maxPriceInput.value = maxVal;
-    }
-
-    minRangeInput.addEventListener('input', updateSliderRange);
-    maxRangeInput.addEventListener('input', updateSliderRange);
-
-    minPriceInput.addEventListener('change', function() {
-        minRangeInput.value = Math.min(parseInt(this.value), parseInt(maxPriceInput.value));
-        updateSliderRange();
-    });
-
-    maxPriceInput.addEventListener('change', function() {
-        maxRangeInput.value = Math.max(parseInt(this.value), parseInt(minPriceInput.value));
-        updateSliderRange();
-    });
-
-    // Initialize slider
-    updateSliderRange();
-
-    // Apply price filter
-    applyPriceBtn.addEventListener('click', function() {
-        activeFilters.priceRange = {
-            min: parseInt(minPriceInput.value),
-            max: parseInt(maxPriceInput.value)
-        };
-        
-        updateActiveFilters();
-        filterProducts();
-    });
-
-    // Category filters
-    categoryCheckboxes.forEach(checkbox => {
-        checkbox.addEventListener('change', function() {
-            if(this.checked) {
-                activeFilters.categories.push(this.value);
-            } else {
-                activeFilters.categories = activeFilters.categories.filter(cat => cat !== this.value);
-            }
-            
-            updateActiveFilters();
-            filterProducts();
-        });
-    });
-
-    // Badge filters
-    badgeCheckboxes.forEach(checkbox => {
-        checkbox.addEventListener('change', function() {
-            if(this.checked) {
-                activeFilters.badges.push(this.value);
-            } else {
-                activeFilters.badges = activeFilters.badges.filter(badge => badge !== this.value);
-            }
-            
-            updateActiveFilters();
-            filterProducts();
-        });
-    });
-
-    // Product search
-    productSearch.addEventListener('input', function() {
-        activeFilters.search = this.value.toLowerCase().trim();
-        filterProducts();
-    });
-
-    // Clear all filters
-    clearFiltersBtn.addEventListener('click', function() {
-        // Reset checkboxes
-        categoryCheckboxes.forEach(checkbox => checkbox.checked = false);
-        badgeCheckboxes.forEach(checkbox => checkbox.checked = false);
-        
-        // Reset price range
-        minPriceInput.value = 0;
-        maxPriceInput.value = 100;
-        minRangeInput.value = 0;
-        maxRangeInput.value = 100;
-        updateSliderRange();
-        
-        // Reset search
-        productSearch.value = '';
-        
-        // Reset active filters
-        activeFilters = {
-            categories: [],
-            badges: [],
-            priceRange: {
-                min: 0,
-                max: 100
-            },
-            search: ''
-        };
-        
-        updateActiveFilters();
-        filterProducts();
-    });
 
     // Update active filters UI
     function updateActiveFilters() {
@@ -319,6 +185,154 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
+    // Get URL parameters and apply filter (MOVED HERE)
+    const urlParams = new URLSearchParams(window.location.search);
+    const categoryParam = urlParams.get('category');
+    
+    // If category parameter exists, apply the filter
+    if (categoryParam) {
+        const checkbox = document.querySelector(`input[name="category"][value="${categoryParam}"]`);
+        if (checkbox) {
+            checkbox.checked = true;
+            activeFilters.categories.push(categoryParam);
+            updateActiveFilters();
+            filterProducts();
+        }
+    }
+
+    // Toggle filter sidebar on mobile
+    filterToggle.addEventListener('click', function() {
+        filterSidebar.classList.toggle('active');
+        overlay.classList.toggle('active');
+        
+        if(filterSidebar.classList.contains('active')) {
+            filterToggle.innerHTML = '<i class="fas fa-times"></i> Hide Filters';
+            document.body.style.overflow = 'hidden';
+        } else {
+            filterToggle.innerHTML = '<i class="fas fa-filter"></i> Show Filters';
+            document.body.style.overflow = '';
+        }
+    });
+
+    // Hide sidebar when clicking overlay
+    overlay.addEventListener('click', function() {
+        filterSidebar.classList.remove('active');
+        overlay.classList.remove('active');
+        filterToggle.innerHTML = '<i class="fas fa-filter"></i> Show Filters';
+        document.body.style.overflow = '';
+    });
+
+    // Price slider functionality
+    function updateSliderRange() {
+        const minVal = parseInt(minRangeInput.value);
+        const maxVal = parseInt(maxRangeInput.value);
+        
+        if (minVal > maxVal) {
+            minRangeInput.value = maxVal;
+        }
+        
+        const percent1 = (minVal / parseInt(minRangeInput.max)) * 100;
+        const percent2 = (maxVal / parseInt(maxRangeInput.max)) * 100;
+        
+        sliderTrack.style.left = percent1 + '%';
+        sliderTrack.style.width = (percent2 - percent1) + '%';
+        
+        minPriceInput.value = minVal;
+        maxPriceInput.value = maxVal;
+    }
+
+    minRangeInput.addEventListener('input', updateSliderRange);
+    maxRangeInput.addEventListener('input', updateSliderRange);
+
+    minPriceInput.addEventListener('change', function() {
+        minRangeInput.value = Math.min(parseInt(this.value), parseInt(maxPriceInput.value));
+        updateSliderRange();
+    });
+
+    maxPriceInput.addEventListener('change', function() {
+        maxRangeInput.value = Math.max(parseInt(this.value), parseInt(minPriceInput.value));
+        updateSliderRange();
+    });
+
+    // Initialize slider
+    updateSliderRange();
+
+    // Apply price filter
+    applyPriceBtn.addEventListener('click', function() {
+        activeFilters.priceRange = {
+            min: parseInt(minPriceInput.value),
+            max: parseInt(maxPriceInput.value)
+        };
+        
+        updateActiveFilters();
+        filterProducts();
+    });
+
+    // Category filters
+    categoryCheckboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', function() {
+            if(this.checked) {
+                activeFilters.categories.push(this.value);
+            } else {
+                activeFilters.categories = activeFilters.categories.filter(cat => cat !== this.value);
+            }
+            
+            updateActiveFilters();
+            filterProducts();
+        });
+    });
+
+    // Badge filters
+    badgeCheckboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', function() {
+            if(this.checked) {
+                activeFilters.badges.push(this.value);
+            } else {
+                activeFilters.badges = activeFilters.badges.filter(badge => badge !== this.value);
+            }
+            
+            updateActiveFilters();
+            filterProducts();
+        });
+    });
+
+    // Product search
+    productSearch.addEventListener('input', function() {
+        activeFilters.search = this.value.toLowerCase().trim();
+        filterProducts();
+    });
+
+    // Clear all filters
+    clearFiltersBtn.addEventListener('click', function() {
+        // Reset checkboxes
+        categoryCheckboxes.forEach(checkbox => checkbox.checked = false);
+        badgeCheckboxes.forEach(checkbox => checkbox.checked = false);
+        
+        // Reset price range
+        minPriceInput.value = 0;
+        maxPriceInput.value = 100;
+        minRangeInput.value = 0;
+        maxRangeInput.value = 100;
+        updateSliderRange();
+        
+        // Reset search
+        productSearch.value = '';
+        
+        // Reset active filters
+        activeFilters = {
+            categories: [],
+            badges: [],
+            priceRange: {
+                min: 0,
+                max: 100
+            },
+            search: ''
+        };
+        
+        updateActiveFilters();
+        filterProducts();
+    });
+
     // Sort products
     sortSelect.addEventListener('change', function() {
         const sortValue = this.value;
@@ -347,6 +361,6 @@ document.addEventListener('DOMContentLoaded', function() {
             this.classList.add('active');
         });
     });
-
+    
     // Shopping Cart Functionality (already implemented in shoppingcard.js)
 });
