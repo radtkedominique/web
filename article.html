@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produktdetails - student-essentials</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./article.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="container header-container">
+          <a href="index.html" class="logo">
+            <img src="images/dhbw_logo.png" alt="StudentEssentials Logo">
+          </a>
+          <nav class="nav">
+            <ul class="nav-menu">
+              <li class="nav-item">
+                <a href="index.html" class="nav-link">Home</a>
+              </li>
+              <li class="nav-item">
+                <a href="shop.html" class="nav-link">Shop</a>
+              </li>
+              <li class="nav-item">
+                <a href="#categories" class="nav-link">Categories</a>
+              </li>
+              <li class="nav-item">
+                <a href="about-us.html" class="nav-link">About Us</a>
+              </li>
+              <li class="nav-item">
+                <div class="search-bar">
+                  <input type="text" placeholder="Search for products..." aria-label="Search" id="product-search">
+                  <i class="fas fa-search search-icon"></i>
+                </div>
+              </li>
+            </ul>
+            <div class="cart-container" id="cart-container">
+              <div class="cart-icon">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count" id="cart-count">0</span>
+              </div>
+              <div class="cart-dropdown" id="cart-dropdown">
+                <h3>Your Cart</h3>
+                <div class="cart-items" id="cart-items">
+                  <!-- Cart items will be populated by JavaScript -->
+                  <div class="empty-cart" id="empty-cart">Your cart is empty</div>
+                </div>
+                <div class="cart-total" id="cart-total-container" style="display: none;">
+                  <span>Total:</span>
+                  <span id="cart-total">$0.00</span>
+                </div>
+                <div class="cart-buttons" id="cart-buttons" style="display: none;">
+                  <button class="btn btn-outline" id="clear-cart">Clear Cart</button>
+                  <button class="btn btn-primary" id="checkout">Checkout</button>
+                </div>
+              </div>
+            </div>
+            <button id="mobile-toggle" class="mobile-toggle">
+              <i class="fas fa-bars"></i>
+            </button>
+          </nav>
+        </div>
+      </header>
+
+    <div class="product-container">
+        <div class="product-image">
+            <img id="product-img" src="images/1140-joyfulwomandancing.jpg" alt="Produktbild">
+        </div>
+
+        <div class="product-details">
+            <h1 id="product-title">Exmatrikulation</h1>
+            <div class="product-meta">
+                <span id="product-category" class="category-tag">Antrag</span>
+                <span id="product-price" class="price">2.99 EUR</span>
+            </div>
+
+            <div class="product-description">
+                <p id="product-desc">Weil das Leben so schön sein kann.
+                </p>
+            </div>
+
+            <div class="product-actions">
+                <button class="buy-btn">Jetzt kaufen</button>
+                <a href="#" class="add-to-cart">
+                  <i class="fas fa-shopping-cart"></i> In den Warenkorb
+              </a>
+                
+            </div>
+
+            <div class="product-info">
+                <div class="info-section">
+                    <h3>Details</h3>
+                    <ul id="product-details-list">
+                        <li>Format: PDF</li>
+                        <li>Seitenzahl: 15</li>
+                        <li>Größe: 2.4 MB</li>
+                        <li>Aktualität: Sommersemester 2024</li>
+                    </ul>
+                </div>
+
+                <div class="info-section">
+                    <h3>Kundenbewertungen</h3>
+                    <div class="rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="count">(12 Bewertungen)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="related-products">
+        <h2>Ähnliche Produkte</h2>
+        <div class="card-grid">
+            <div class="card" data-category="Prüfungslösungen">
+                <img src="images/dokumentenlenkung.jpg" alt="">
+                <h3>Krankmeldung</h3>
+                <h3 class="price">3.99 EUR</h3>
+                <p>Antrag</p>
+            </div>
+
+            <div class="card" data-category="Prüfungslösungen">
+                <img src="images/hieroglyphics-429863-960-720-hieroglyphen-b.jpeg" alt="">
+                <h3>Mathe2</h3>
+                <h3 class="price">29.99 EUR</h3>
+                <p>Prüfungslösung</p>
+            </div>
+
+            <div class="card" data-category="Dokumente">
+                <img src="images/1140-joyfulwomandancing.jpg" alt="">
+                <h3>Exmatrikulation</h3>
+                <h3 class="price">2.99 EUR</h3>
+                <p>Antrag</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="shoppingcard.js"></script>
+    <script src="shop.js"></script>
+    <script>
+        // Add event listeners for related product cards
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('click', function () {
+                const relatedProductId = this.dataset.productId;
+                if (relatedProductId) {
+                    window.location.href = `article.html?id=${relatedProductId}`;
+                }
+            });
+        });
+
+document.addEventListener('DOMContentLoaded', function() {
+    const addToCartBtn = document.querySelector('.product-actions .add-to-cart');
+    const productTitle = document.getElementById('product-title').textContent;
+    const productPrice = parseFloat(document.getElementById('product-price').textContent.replace(/[^0-9.]/g, ''));
+    const productId = 'article_' + Math.random().toString(36).substr(2, 9);
+    
+    if (addToCartBtn) {
+        addToCartBtn.setAttribute('data-id', productId);
+        addToCartBtn.setAttribute('data-name', productTitle);
+        addToCartBtn.setAttribute('data-price', productPrice);
+    }
+});
+    </script>
+</body>
+
+</html>
