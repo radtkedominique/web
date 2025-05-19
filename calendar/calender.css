@@ -1,0 +1,235 @@
+/* Import the Satoshi font */
+@font-face {
+  font-family: 'Satoshi';
+  src: url('./Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('./Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Reset & Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary: #df0a0a;
+  --primary-dark: #c20505;
+  --primary-light: #ff3b3b;
+  --secondary: #000000;
+  --text: #333333;
+  --text-light: #777777;
+  --background: #ffffff;
+  --background-alt: #f8f8f8;
+  --border: #e0e0e0;
+  --shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  --radius: 8px;
+  --transition: all 0.3s ease;
+  
+  /* Calendar-specific colors */
+  --mathe-color: #df0a0a;
+  --online-color: #54a0ff;
+  --frei-color: #f1f2f6;
+  --fach-color: #5f27cd;
+  --lieblingsfach-color: #2ed573;
+}
+
+body {
+  font-family: 'Satoshi', Helvetica, sans-serif;
+  color: var(--text);
+  background-color: var(--background);
+  line-height: 1.6;
+  padding: 20px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+/* Header Styles */
+header {
+  margin-bottom: 30px;
+  text-align: center;
+  padding: 20px 0;
+}
+
+header h1 {
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--text);
+  position: relative;
+  display: inline-block;
+  padding-bottom: 15px;
+}
+
+header h1::after {
+  content: "";
+  position: absolute;
+  width: 50px;
+  height: 3px;
+  background-color: var(--primary);
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Table Styles */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 40px;
+  background-color: var(--background);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  animation: fadeIn 0.5s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translateY(20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+thead {
+  background-color: var(--secondary);
+  color: white;
+}
+
+th {
+  text-align: left;
+  padding: 15px;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+td {
+  padding: 15px;
+  border-bottom: 1px solid var(--border);
+  font-size: 15px;
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+tbody tr:hover {
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
+/* Subject Class Styles */
+.mathe {
+  background-color: var(--mathe-color);
+  color: white;
+  font-weight: 500;
+  border-left: 4px solid #c20505;
+}
+
+.online {
+  background-color: var(--online-color);
+  color: white;
+  font-weight: 500;
+  border-left: 4px solid #2e86de;
+}
+
+.frei {
+  background-color: var(--frei-color);
+  color: var(--text-light);
+  font-style: italic;
+}
+
+.fach {
+  background-color: var(--fach-color);
+  color: white;
+  font-weight: 500;
+  border-left: 4px solid #341f97;
+}
+
+.lieblingsfach {
+  background-color: var(--lieblingsfach-color);
+  color: white;
+  font-weight: 500;
+  border-left: 4px solid #10ac84;
+}
+
+/* Footer Styles */
+footer {
+  text-align: center;
+  padding: 20px 0;
+  color: var(--text-light);
+  font-size: 14px;
+  border-top: 1px solid var(--border);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  header h1 {
+      font-size: 28px;
+  }
+  
+  th, td {
+      padding: 12px 8px;
+      font-size: 14px;
+  }
+  
+  /* Ensure the table doesn't break the layout */
+  table {
+      width: 100%;
+      table-layout: fixed;
+  }
+  
+  /* Make first column (time) a bit narrower */
+  td:first-child, th:first-child {
+      width: 20%;
+  }
+  
+  /* Make all other columns equal width */
+  th:not(:first-child), td:not(:first-child) {
+      width: 16%;
+  }
+}
+
+@media (max-width: 576px) {
+  /* For very small screens */
+  header h1 {
+      font-size: 24px;
+  }
+  
+  th, td {
+      padding: 8px 4px;
+      font-size: 12px;
+  }
+  
+  /* Compress time column further */
+  td:first-child, th:first-child {
+      width: 18%;
+  }
+  
+  /* Remove some spacing */
+  body {
+      padding: 10px;
+  }
+  
+  /* Smaller text for class subjects */
+  .mathe, .online, .fach, .lieblingsfach, .frei {
+      font-size: 11px;
+  }
+  
+  /* Make the time format more compact if needed */
+  td:first-child {
+      font-size: 11px;
+  }
+}
