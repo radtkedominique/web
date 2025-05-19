@@ -1,0 +1,50 @@
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  th, td {
+    border: 1px solid #9f9d9d;
+    padding: 12px;
+  }
+  
+  
+  .mathe {
+    font-weight: bold;
+    background-color: orange;
+  }
+  .fach 
+{
+    background-color: lightblue;
+  }
+  .lieblingsfach {
+    background-color: lightgreen;
+  }
+  
+  .online {
+    font-style: italic;
+    color: blue;
+  }
+  
+  .frei{
+    font-weight: bold;
+    color : red;
+    
+  }
+  header {
+    background-color: #f0f0f0;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  
+  footer {
+    background-color: #f0f0f0;
+    padding: 10px;
+    text-align: center;
+    margin-top: 30px;
+  }
+  
