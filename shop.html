@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shop - StudentEssentials</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="shop-style.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/shop-style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 
@@ -33,7 +33,8 @@
                     </li>
                     <li class="nav-item">
                         <div class="search-bar">
-                            <input type="text" placeholder="Search for products..." aria-label="Search" id="product-search">
+                            <input type="text" placeholder="Search for products..." aria-label="Search"
+                                id="product-search">
                             <i class="fas fa-search search-icon"></i>
                         </div>
                     </li>
@@ -156,7 +157,7 @@
                             </label>
                         </div>
                     </div>
-                    
+
                     <!-- Mobile Filter Toggle -->
                     <button class="filter-toggle" id="filter-toggle">
                         <i class="fas fa-filter"></i> Show Filters
@@ -185,30 +186,30 @@
                     <!-- Products Grid -->
                     <div class="product-grid shop-product-grid">
                         <!-- Product Card 1 -->
-                        <a href="article.html" class="product-card-link">
-                            <div class="product-card" data-category="Dokumente" data-price="2.99" data-badge="popular">
-                              <div class="product-image">
+                        <div class="product-card" data-category="Dokumente" data-price="2.99" data-badge="popular"
+                            onclick="window.location.href='article.html'" style="cursor: pointer;">
+                            <div class="product-image">
                                 <img src="images/1140-joyfulwomandancing.jpg" alt="Exmatrikulation">
                                 <span class="product-badge">Popular</span>
-                              </div>
-                              <div class="product-info">
+                            </div>
+                            <div class="product-info">
                                 <h3 class="product-title">Exmatrikulation</h3>
                                 <p class="product-category">Antrag</p>
                                 <div class="product-meta">
-                                  <span class="product-price">2.99 EUR</span>
-                                  <span class="add-to-cart">
-                                    <i class="fas fa-shopping-cart"></i> Add
-                                  </span>
+                                    <span class="product-price">2.99 EUR</span>
+                                    <span class="add-to-cart">
+                                        <i class="fas fa-shopping-cart"></i> Add
+                                    </span>
                                 </div>
-                              </div>
                             </div>
-                          </a>
-                          
+                        </div>
+
 
                         <!-- Product Card 2 -->
                         <div class="product-card" data-category="Prüfungslösungen" data-price="29.99" data-badge="hot">
                             <div class="product-image">
-                                <div style="background-color: #e0e0e0; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
+                                <div
+                                    style="background-color: #e0e0e0; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
                                     <i class="fas fa-file-alt" style="font-size: 48px; color: #999;"></i>
                                 </div>
                             </div>
@@ -217,7 +218,8 @@
                                 <p class="product-category">Prüfungslösung</p>
                                 <div class="product-meta">
                                     <span class="product-price">29.99 EUR</span>
-                                    <a href="#" class="add-to-cart" data-id="mathe1" data-name="Mathe1" data-price="29.99">
+                                    <a href="#" class="add-to-cart" data-id="mathe1" data-name="Mathe1"
+                                        data-price="29.99">
                                         <i class="fas fa-shopping-cart"></i> Add
                                     </a>
                                 </div>
@@ -226,16 +228,19 @@
 
                         <!-- Product Card 3 -->
                         <div class="product-card" data-category="Prüfungslösungen" data-price="29.99">
-                            <div class="product-image"><div style="background-color: #e0e0e0; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
-                                <i class="fas fa-file-alt" style="font-size: 48px; color: #999;"></i>
-                            </div>
+                            <div class="product-image">
+                                <div
+                                    style="background-color: #e0e0e0; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
+                                    <i class="fas fa-file-alt" style="font-size: 48px; color: #999;"></i>
+                                </div>
                             </div>
                             <div class="product-info">
                                 <h3 class="product-title">Mathe2</h3>
                                 <p class="product-category">Prüfungslösung</p>
                                 <div class="product-meta">
                                     <span class="product-price">29.99 EUR</span>
-                                    <a href="#" class="add-to-cart" data-id="mathe2" data-name="Mathe2" data-price="29.99">
+                                    <a href="#" class="add-to-cart" data-id="mathe2" data-name="Mathe2"
+                                        data-price="29.99">
                                         <i class="fas fa-shopping-cart"></i> Add
                                     </a>
                                 </div>
@@ -249,7 +254,7 @@
                                 <span class="product-badge">Hot</span>
                             </div>
                             <div class="product-info">
-                                <h3 class="product-title">Meenes Tochter</h3>
+                                <h3 class="product-title">Tinder Date</h3>
                                 <p class="product-category">Handynummer</p>
                                 <div class="product-meta">
                                     <span class="product-price">30.99 EUR</span>
@@ -263,7 +268,8 @@
                         <!-- Product Card 5 -->
                         <div class="product-card" data-category="Prüfungslösungen" data-price="19.99" data-badge="new">
                             <div class="product-image">
-                                <div style="background-color: #e0e0e0; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
+                                <div
+                                    style="background-color: #e0e0e0; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
                                     <i class="fas fa-file-alt" style="font-size: 48px; color: #999;"></i>
                                 </div>
                                 <span class="product-badge">New</span>
@@ -273,7 +279,8 @@
                                 <p class="product-category">Grundlagen</p>
                                 <div class="product-meta">
                                     <span class="product-price">19.99 EUR</span>
-                                    <a href="#" class="add-to-cart" data-id="mathe1m" data-name="Mathe 1: Mayer" data-price="19.99">
+                                    <a href="#" class="add-to-cart" data-id="mathe1m" data-name="Mathe 1: Mayer"
+                                        data-price="19.99">
                                         <i class="fas fa-shopping-cart"></i> Add
                                     </a>
                                 </div>
@@ -283,7 +290,8 @@
                         <!-- Product Card 6 -->
                         <div class="product-card" data-category="Prüfungslösungen" data-price="24.99">
                             <div class="product-image">
-                                <div style="background-color: #e0e0e0; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
+                                <div
+                                    style="background-color: #e0e0e0; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
                                     <i class="fas fa-file-alt" style="font-size: 48px; color: #999;"></i>
                                 </div>
                             </div>
@@ -292,7 +300,8 @@
                                 <p class="product-category">Fortgeschritten</p>
                                 <div class="product-meta">
                                     <span class="product-price">24.99 EUR</span>
-                                    <a href="#" class="add-to-cart" data-id="mathe2n" data-name="Mathe 2: Nakou" data-price="24.99">
+                                    <a href="#" class="add-to-cart" data-id="mathe2n" data-name="Mathe 2: Nakou"
+                                        data-price="24.99">
                                         <i class="fas fa-shopping-cart"></i> Add
                                     </a>
                                 </div>
@@ -302,7 +311,8 @@
                         <!-- Product Card 7 -->
                         <div class="product-card" data-category="Prüfungslösungen" data-price="22.99" data-badge="hot">
                             <div class="product-image">
-                                <div style="background-color: #e0e0e0; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
+                                <div
+                                    style="background-color: #e0e0e0; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
                                     <i class="fas fa-file-alt" style="font-size: 48px; color: #999;"></i>
                                 </div>
                                 <span class="product-badge">Hot</span>
@@ -312,7 +322,8 @@
                                 <p class="product-category">Grundlagen</p>
                                 <div class="product-meta">
                                     <span class="product-price">22.99 EUR</span>
-                                    <a href="#" class="add-to-cart" data-id="pythonw" data-name="Python: Wiessler" data-price="22.99">
+                                    <a href="#" class="add-to-cart" data-id="pythonw" data-name="Python: Wiessler"
+                                        data-price="22.99">
                                         <i class="fas fa-shopping-cart"></i> Add
                                     </a>
                                 </div>
@@ -329,7 +340,8 @@
                                 <p class="product-category">Mit Profi Niggo</p>
                                 <div class="product-meta">
                                     <span class="product-price">49.99 EUR</span>
-                                    <a href="#" class="add-to-cart" data-id="tutor1" data-name="Programming Tutoring" data-price="49.99">
+                                    <a href="#" class="add-to-cart" data-id="tutor1" data-name="Programming Tutoring"
+                                        data-price="49.99">
                                         <i class="fas fa-shopping-cart"></i> Add
                                     </a>
                                 </div>
@@ -346,7 +358,8 @@
                                 <p class="product-category">After School Essential</p>
                                 <div class="product-meta">
                                     <span class="product-price">5.99 EUR</span>
-                                    <a href="#" class="add-to-cart" data-id="snus1" data-name="Snus Pack" data-price="5.99">
+                                    <a href="#" class="add-to-cart" data-id="snus1" data-name="Snus Pack"
+                                        data-price="5.99">
                                         <i class="fas fa-shopping-cart"></i> Add
                                     </a>
                                 </div>
@@ -364,7 +377,8 @@
                                 <p class="product-category">Antrag</p>
                                 <div class="product-meta">
                                     <span class="product-price">3.99 EUR</span>
-                                    <a href="#" class="add-to-cart" data-id="krank1" data-name="Krankmeldung" data-price="3.99">
+                                    <a href="#" class="add-to-cart" data-id="krank1" data-name="Krankmeldung"
+                                        data-price="3.99">
                                         <i class="fas fa-shopping-cart"></i> Add
                                     </a>
                                 </div>
@@ -374,7 +388,8 @@
                         <!-- Product Card 11 -->
                         <div class="product-card" data-category="AfterSchool" data-price="8.99" data-badge="popular">
                             <div class="product-image">
-                                <div style="background-color: #e0e0e0; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
+                                <div
+                                    style="background-color: #e0e0e0; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
                                     <i class="fas fa-beer" style="font-size: 48px; color: #999;"></i>
                                 </div>
                                 <span class="product-badge">Popular</span>
@@ -384,7 +399,8 @@
                                 <p class="product-category">After School Essential</p>
                                 <div class="product-meta">
                                     <span class="product-price">8.99 EUR</span>
-                                    <a href="#" class="add-to-cart" data-id="beer1" data-name="Bier 6-Pack" data-price="8.99">
+                                    <a href="#" class="add-to-cart" data-id="beer1" data-name="Bier 6-Pack"
+                                        data-price="8.99">
                                         <i class="fas fa-shopping-cart"></i> Add
                                     </a>
                                 </div>
@@ -394,7 +410,8 @@
                         <!-- Product Card 12 -->
                         <div class="product-card" data-category="Tutoring" data-price="39.99">
                             <div class="product-image">
-                                <div style="background-color: #e0e0e0; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
+                                <div
+                                    style="background-color: #e0e0e0; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
                                     <i class="fas fa-graduation-cap" style="font-size: 48px; color: #999;"></i>
                                 </div>
                             </div>
@@ -403,7 +420,8 @@
                                 <p class="product-category">Online Session</p>
                                 <div class="product-meta">
                                     <span class="product-price">39.99 EUR</span>
-                                    <a href="#" class="add-to-cart" data-id="tutor2" data-name="Math Tutoring" data-price="39.99">
+                                    <a href="#" class="add-to-cart" data-id="tutor2" data-name="Math Tutoring"
+                                        data-price="39.99">
                                         <i class="fas fa-shopping-cart"></i> Add
                                     </a>
                                 </div>
@@ -432,7 +450,8 @@
                 <a href="index.html" class="footer-logo">
                     <img src="images/dhbw_logo.png" alt="StudentEssentials Logo" height="50">
                 </a>
-                <p>StudentEssentials provides everything a student could need for their academic and personal life on campus. From exam solutions to everyday essentials.</p>
+                <p>StudentEssentials provides everything a student could need for their academic and personal life on
+                    campus. From exam solutions to everyday essentials.</p>
                 <div class="social-links">
                     <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
                     <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
@@ -473,8 +492,8 @@
     </footer>
 
     <!-- External JavaScript -->
-    <script src="shoppingcard.js"></script>
-    <script src="shop.js"></script>
+    <script src="js/shoppingcard.js"></script>
+    <script src="js/shop.js"></script>
 
     <!-- TODO: Product Card Navigation Script -->
 </body>

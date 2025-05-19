@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>StudentEssentials - Your Campus Survival Kit</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
     <!-- Font Awesome via CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
@@ -14,57 +14,58 @@
     <!-- Header -->
     <header class="header">
         <div class="container header-container">
-          <a href="index.html" class="logo">
-            <img src="images/dhbw_logo.png" alt="StudentEssentials Logo">
-          </a>
-          <nav class="nav">
-            <ul class="nav-menu">
-              <li class="nav-item">
-                <a href="index.html" class="nav-link">Home</a>
-              </li>
-              <li class="nav-item">
-                <a href="shop.html" class="nav-link">Shop</a>
-              </li>
-              <li class="nav-item">
-                <a href="#categories" class="nav-link">Categories</a>
-              </li>
-              <li class="nav-item">
-                <a href="about-us.html" class="nav-link">About Us</a>
-              </li>
-              <li class="nav-item">
-                <div class="search-bar">
-                  <input type="text" placeholder="Search for products..." aria-label="Search" id="product-search">
-                  <i class="fas fa-search search-icon"></i>
+            <a href="index.html" class="logo">
+                <img src="images/dhbw_logo.png" alt="StudentEssentials Logo">
+            </a>
+            <nav class="nav">
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="shop.html" class="nav-link">Shop</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#categories" class="nav-link">Categories</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="about-us.html" class="nav-link">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <div class="search-bar">
+                            <input type="text" placeholder="Search for products..." aria-label="Search"
+                                id="product-search">
+                            <i class="fas fa-search search-icon"></i>
+                        </div>
+                    </li>
+                </ul>
+                <div class="cart-container" id="cart-container">
+                    <div class="cart-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cart-count">0</span>
+                    </div>
+                    <div class="cart-dropdown" id="cart-dropdown">
+                        <h3>Your Cart</h3>
+                        <div class="cart-items" id="cart-items">
+                            <!-- Cart items will be populated by JavaScript -->
+                            <div class="empty-cart" id="empty-cart">Your cart is empty</div>
+                        </div>
+                        <div class="cart-total" id="cart-total-container" style="display: none;">
+                            <span>Total:</span>
+                            <span id="cart-total">$0.00</span>
+                        </div>
+                        <div class="cart-buttons" id="cart-buttons" style="display: none;">
+                            <button class="btn btn-outline" id="clear-cart">Clear Cart</button>
+                            <button class="btn btn-primary" id="checkout">Checkout</button>
+                        </div>
+                    </div>
                 </div>
-              </li>
-            </ul>
-            <div class="cart-container" id="cart-container">
-              <div class="cart-icon">
-                <i class="fas fa-shopping-cart"></i>
-                <span class="cart-count" id="cart-count">0</span>
-              </div>
-              <div class="cart-dropdown" id="cart-dropdown">
-                <h3>Your Cart</h3>
-                <div class="cart-items" id="cart-items">
-                  <!-- Cart items will be populated by JavaScript -->
-                  <div class="empty-cart" id="empty-cart">Your cart is empty</div>
-                </div>
-                <div class="cart-total" id="cart-total-container" style="display: none;">
-                  <span>Total:</span>
-                  <span id="cart-total">$0.00</span>
-                </div>
-                <div class="cart-buttons" id="cart-buttons" style="display: none;">
-                  <button class="btn btn-outline" id="clear-cart">Clear Cart</button>
-                  <button class="btn btn-primary" id="checkout">Checkout</button>
-                </div>
-              </div>
-            </div>
-            <button id="mobile-toggle" class="mobile-toggle">
-              <i class="fas fa-bars"></i>
-            </button>
-          </nav>
+                <button id="mobile-toggle" class="mobile-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
         </div>
-      </header>
+    </header>
 
     <!-- Hero Section -->
     <section class="hero">
@@ -99,25 +100,24 @@
             </div>
             <div class="product-grid">
                 <!-- Product Card 1 -->
-                <a href="article.html" class="product-card-link">
-                    <div class="product-card" data-category="Dokumente" data-price="2.99" data-badge="popular">
-                      <div class="product-image">
+                <div class="product-card" data-category="Dokumente" data-price="2.99" data-badge="popular"
+                    onclick="window.location.href='article.html'" style="cursor: pointer;">
+                    <div class="product-image">
                         <img src="images/1140-joyfulwomandancing.jpg" alt="Exmatrikulation">
                         <span class="product-badge">Popular</span>
-                      </div>
-                      <div class="product-info">
+                    </div>
+                    <div class="product-info">
                         <h3 class="product-title">Exmatrikulation</h3>
                         <p class="product-category">Antrag</p>
                         <div class="product-meta">
-                          <span class="product-price">2.99 EUR</span>
-                          <span class="add-to-cart">
-                            <i class="fas fa-shopping-cart"></i> Add
-                          </span>
+                            <span class="product-price">2.99 EUR</span>
+                            <span class="add-to-cart">
+                                <i class="fas fa-shopping-cart"></i> Add
+                            </span>
                         </div>
-                      </div>
                     </div>
-                  </a>
-                  
+                </div>
+
 
                 <!-- Product Card 2 -->
                 <div class="product-card">
@@ -161,7 +161,7 @@
                         <span class="product-badge">Hot</span>
                     </div>
                     <div class="product-info">
-                        <h3 class="product-title">Meenes Tochter</h3>
+                        <h3 class="product-title">Tinder Date</h3>
                         <p class="product-category">Handynummer</p>
                         <div class="product-meta">
                             <span class="product-price">30.99 EUR</span>
@@ -181,7 +181,8 @@
             <h2 class="categories-title">Browse By Category</h2>
             <div class="categories-grid">
                 <!-- Category 1 -->
-                <div class="category-card">
+                <div class="category-card" onclick="window.location.href='shop.html?category=Prüfungslösungen'"
+                    style="cursor: pointer;">
                     <img src="images/teaser-pruefungsvorbereitung.jpg" alt="Prüfungslösungen">
                     <div class="category-content">
                         <h3>Prüfungslösungen</h3>
@@ -190,16 +191,18 @@
                 </div>
 
                 <!-- Category 2 -->
-                <div class="category-card">
+                <div class="category-card" onclick="window.location.href='shop.html?category=Tutoring'"
+                    style="cursor: pointer;">
                     <img src="images/IMG_6316 14.35.15.jpg" alt="Tutoring">
                     <div class="category-content">
                         <h3>Tutoring</h3>
-                        <p>Mit Profi Niggo und anderen Experten</p>
+                        <p>Mit Profi Nico und anderen Experten</p>
                     </div>
                 </div>
 
                 <!-- Category 3 -->
-                <div class="category-card">
+                <div class="category-card" onclick="window.location.href='shop.html?category=Dokumente'"
+                    style="cursor: pointer;">
                     <img src="images/dokumentenlenkung.jpg" alt="Documente">
                     <div class="category-content">
                         <h3>Dokumente</h3>
@@ -208,7 +211,8 @@
                 </div>
 
                 <!-- Category 4 -->
-                <div class="category-card">
+                <div class="category-card" onclick="window.location.href='shop.html?category=AfterSchool'"
+                    style="cursor: pointer;">
                     <img src="images/IMG_2467 14.35.15.jpg" alt="After School Essentials">
                     <div class="category-content">
                         <h3>After School Essentials</h3>
@@ -227,6 +231,7 @@
                 <a href="shop.html?category=Prüfungslösungen" class="btn btn-primary">View All</a>
             </div>
             <div class="product-grid">
+
                 <!-- Exam Card 1 -->
                 <div class="product-card">
                     <div class="product-image">
@@ -234,13 +239,12 @@
                             style="background-color: #e0e0e0; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
                             <i class="fas fa-file-alt" style="font-size: 48px; color: #999;"></i>
                         </div>
-                        <span class="product-badge">New</span>
                     </div>
                     <div class="product-info">
-                        <h3 class="product-title">Mathe 1: Mayer</h3>
+                        <h3 class="product-title">Mathe 1: Meyer</h3>
                         <p class="product-category">Grundlagen</p>
                         <div class="product-meta">
-                            <span class="product-price">19.99 EUR</span>
+                            <span class="product-price">24.99 EUR</span>
                             <a href="#" class="add-to-cart">
                                 <i class="fas fa-shopping-cart"></i> Add
                             </a>
@@ -288,11 +292,31 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Exam Card 4 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <div
+                            style="background-color: #e0e0e0; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-file-alt" style="font-size: 48px; color: #999;"></i>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Python: Bernecker</h3>
+                        <p class="product-category">Fortgeschritten</p>
+                        <div class="product-meta">
+                            <span class="product-price">24.99 EUR</span>
+                            <a href="#" class="add-to-cart">
+                                <i class="fas fa-shopping-cart"></i> Add
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    
+
     <!-- Testimonials Section -->
     <section class="testimonials-section">
         <div class="container">
@@ -310,7 +334,8 @@
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
                         </div>
-                        <p>"Ohne die Prüfungslösungen von StudentEssentials hätte ich meine Mathe Nachprüfung niemals bestanden! Absolute Lebensretter!"</p>
+                        <p>"Ohne die Prüfungslösungen von StudentEssentials hätte ich meine Mathe Nachprüfung niemals
+                            bestanden! Absolute Lebensretter!"</p>
                     </div>
                     <div class="testimonial-author">
                         <img src="/api/placeholder/60/60" alt="User" class="testimonial-avatar">
@@ -331,7 +356,8 @@
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star-half-alt"></i>
                         </div>
-                        <p>"Niggo ist der beste Tutor, den ich je hatte. Nach einer Session mit ihm habe ich Python endlich verstanden. Klare Empfehlung!"</p>
+                        <p>"Nicoo ist der beste Tutor, den ich je hatte. Nach einer Session mit ihm habe ich Python
+                            endlich verstanden. Klare Empfehlung!"</p>
                     </div>
                     <div class="testimonial-author">
                         <img src="/api/placeholder/60/60" alt="User" class="testimonial-avatar">
@@ -352,7 +378,8 @@
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
                         </div>
-                        <p>"Die After-School-Essentials kommen immer pünktlich und zu fairen Preisen. Perfekt für alle Partys und langen Lernabende!"</p>
+                        <p>"Die After-School-Essentials kommen immer pünktlich und zu fairen Preisen. Perfekt für alle
+                            Partys und langen Lernabende!"</p>
                     </div>
                     <div class="testimonial-author">
                         <img src="/api/placeholder/60/60" alt="User" class="testimonial-avatar">
@@ -441,7 +468,9 @@
                         <span class="faq-toggle"><i class="fas fa-plus"></i></span>
                     </div>
                     <div class="faq-answer">
-                        <p>Nach der Buchung eines Tutoring-Angebots wirst du mit einem unserer qualifizierten Tutoren verbunden. Die Sessions können online oder persönlich stattfinden, je nach Verfügbarkeit und deinen Präferenzen.</p>
+                        <p>Nach der Buchung eines Tutoring-Angebots wirst du mit einem unserer qualifizierten Tutoren
+                            verbunden. Die Sessions können online oder persönlich stattfinden, je nach Verfügbarkeit und
+                            deinen Präferenzen.</p>
                     </div>
                 </div>
                 <div class="faq-item">
@@ -450,7 +479,8 @@
                         <span class="faq-toggle"><i class="fas fa-plus"></i></span>
                     </div>
                     <div class="faq-answer">
-                        <p>Wir liefern After-School-Essentials in der Regel innerhalb von 60 Minuten auf dem Campus. Für bestimmte Zeiten und besondere Events empfehlen wir eine Vorbestellung.</p>
+                        <p>Wir liefern After-School-Essentials in der Regel innerhalb von 60 Minuten auf dem Campus. Für
+                            bestimmte Zeiten und besondere Events empfehlen wir eine Vorbestellung.</p>
                     </div>
                 </div>
                 <div class="faq-item">
@@ -459,7 +489,9 @@
                         <span class="faq-toggle"><i class="fas fa-plus"></i></span>
                     </div>
                     <div class="faq-answer">
-                        <p>Ja, wir sind immer auf der Suche nach qualitativ hochwertigen Lernmaterialien. Wenn du eigene Prüfungslösungen oder Zusammenfassungen verkaufen möchtest, kontaktiere uns einfach über das Formular.</p>
+                        <p>Ja, wir sind immer auf der Suche nach qualitativ hochwertigen Lernmaterialien. Wenn du eigene
+                            Prüfungslösungen oder Zusammenfassungen verkaufen möchtest, kontaktiere uns einfach über das
+                            Formular.</p>
                     </div>
                 </div>
             </div>
@@ -487,7 +519,8 @@
                 <a href="index.html" class="footer-logo">
                     <img src="images/dhbw_logo.png" alt="StudentEssentials Logo" height="50">
                 </a>
-                <p>StudentEssentials provides everything a student could need for their academic and personal life on campus. From exam solutions to everyday essentials.</p>
+                <p>StudentEssentials provides everything a student could need for their academic and personal life on
+                    campus. From exam solutions to everyday essentials.</p>
                 <div class="social-links">
                     <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
                     <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
@@ -509,7 +542,7 @@
                     <li><a href="#">My Account</a></li>
                     <li><a href="#">Order History</a></li>
                     <li><a href="#">Wishlist</a></li>
-                    <li><a href="#">Newsletter</a></li>
+                    <li><a href="calendar/calender.html">Kalender</a></li>
                 </ul>
             </div>
             <div class="footer-nav">
@@ -528,20 +561,20 @@
     </footer>
 
     <!-- External JavaScript -->
-    <script src="shoppingcard.js"></script>
+    <script src="js/shoppingcard.js"></script>
     <script>
         // Simple FAQ toggle
         document.querySelectorAll('.faq-question').forEach(question => {
             question.addEventListener('click', () => {
                 const faqItem = question.parentElement;
                 const isActive = faqItem.classList.contains('active');
-                
+
                 // Close all FAQs
                 document.querySelectorAll('.faq-item').forEach(item => {
                     item.classList.remove('active');
                     item.querySelector('.faq-toggle i').className = 'fas fa-plus';
                 });
-                
+
                 // If the clicked FAQ wasn't active, open it
                 if (!isActive) {
                     faqItem.classList.add('active');
@@ -554,4 +587,3 @@
 </body>
 
 </html>
-                           
