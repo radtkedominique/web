@@ -73,6 +73,7 @@ img {
         opacity: 0;
         transform: translateY(20px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -986,16 +987,17 @@ img {
     .about-content {
         flex-direction: column;
     }
-    
-    .about-image, .about-text {
+
+    .about-image,
+    .about-text {
         flex: none;
         width: 100%;
     }
-    
+
     .mission-content {
         grid-template-columns: repeat(2, 1fr);
     }
-    
+
     .contact-grid {
         grid-template-columns: 1fr;
         gap: 40px;
@@ -1006,36 +1008,36 @@ img {
     .about-hero {
         height: 300px;
     }
-    
+
     .about-hero-content h1 {
         font-size: 32px;
     }
-    
+
     .about-hero-content p {
         font-size: 16px;
     }
-    
+
     .mission-content {
         grid-template-columns: 1fr;
     }
-    
+
     .team-grid {
         grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     }
-    
+
     .testimonials-slider {
         grid-template-columns: 1fr;
     }
-    
+
     .newsletter-form {
         flex-direction: column;
     }
-    
+
     .newsletter-form input {
         border-radius: 30px;
         margin-bottom: 10px;
     }
-    
+
     .newsletter-form button {
         border-radius: 30px;
         width: 100%;

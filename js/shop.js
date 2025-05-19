@@ -1,5 +1,5 @@
 // Shop Page JavaScript
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Elements
     const filterToggle = document.getElementById('filter-toggle');
     const filterSidebar = document.querySelector('.filter-sidebar');
@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Update active filters UI
     function updateActiveFilters() {
         activeFiltersContainer.innerHTML = '';
-        
+
         // Add category filters
         activeFilters.categories.forEach(category => {
             const filterTag = document.createElement('div');
@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function() {
             `;
             activeFiltersContainer.appendChild(filterTag);
         });
-        
+
         // Add badge filters
         activeFilters.badges.forEach(badge => {
             const filterTag = document.createElement('div');
@@ -64,9 +64,9 @@ document.addEventListener('DOMContentLoaded', function() {
             `;
             activeFiltersContainer.appendChild(filterTag);
         });
-        
+
         // Add price range filter if it's not the default
-        if(activeFilters.priceRange.min > 0 || activeFilters.priceRange.max < 100) {
+        if (activeFilters.priceRange.min > 0 || activeFilters.priceRange.max < 100) {
             const filterTag = document.createElement('div');
             filterTag.className = 'active-filter';
             filterTag.innerHTML = `
@@ -77,9 +77,9 @@ document.addEventListener('DOMContentLoaded', function() {
             `;
             activeFiltersContainer.appendChild(filterTag);
         }
-        
+
         // Add search filter if present
-        if(activeFilters.search) {
+        if (activeFilters.search) {
             const filterTag = document.createElement('div');
             filterTag.className = 'active-filter';
             filterTag.innerHTML = `
@@ -90,32 +90,32 @@ document.addEventListener('DOMContentLoaded', function() {
             `;
             activeFiltersContainer.appendChild(filterTag);
         }
-        
+
         // Add event listeners to remove buttons
         const removeButtons = document.querySelectorAll('.remove-filter');
         removeButtons.forEach(button => {
-            button.addEventListener('click', function() {
+            button.addEventListener('click', function () {
                 const type = this.dataset.type;
                 const value = this.dataset.value;
-                
-                if(type === 'category') {
+
+                if (type === 'category') {
                     activeFilters.categories = activeFilters.categories.filter(cat => cat !== value);
                     document.querySelector(`input[name="category"][value="${value}"]`).checked = false;
-                } else if(type === 'badge') {
+                } else if (type === 'badge') {
                     activeFilters.badges = activeFilters.badges.filter(badge => badge !== value);
                     document.querySelector(`input[name="badge"][value="${value}"]`).checked = false;
-                } else if(type === 'price') {
+                } else if (type === 'price') {
                     activeFilters.priceRange = { min: 0, max: 100 };
                     minPriceInput.value = 0;
                     maxPriceInput.value = 100;
                     minRangeInput.value = 0;
                     maxRangeInput.value = 100;
                     updateSliderRange();
-                } else if(type === 'search') {
+                } else if (type === 'search') {
                     activeFilters.search = '';
                     productSearch.value = '';
                 }
-                
+
                 updateActiveFilters();
                 filterProducts();
             });
@@ -129,44 +129,44 @@ document.addEventListener('DOMContentLoaded', function() {
             const price = parseFloat(card.dataset.price);
             const badge = card.dataset.badge;
             const title = card.querySelector('.product-title').textContent.toLowerCase();
-            
+
             // Check if product matches all filters
             let showProduct = true;
-            
+
             // Category filter
-            if(activeFilters.categories.length > 0 && !activeFilters.categories.includes(category)) {
+            if (activeFilters.categories.length > 0 && !activeFilters.categories.includes(category)) {
                 showProduct = false;
             }
-            
+
             // Badge filter
-            if(activeFilters.badges.length > 0 && (!badge || !activeFilters.badges.includes(badge))) {
+            if (activeFilters.badges.length > 0 && (!badge || !activeFilters.badges.includes(badge))) {
                 showProduct = false;
             }
-            
+
             // Price range filter
-            if(price < activeFilters.priceRange.min || price > activeFilters.priceRange.max) {
+            if (price < activeFilters.priceRange.min || price > activeFilters.priceRange.max) {
                 showProduct = false;
             }
-            
+
             // Search filter
-            if(activeFilters.search && !title.includes(activeFilters.search)) {
+            if (activeFilters.search && !title.includes(activeFilters.search)) {
                 showProduct = false;
             }
-            
+
             // Show or hide product
-            if(showProduct) {
+            if (showProduct) {
                 card.style.display = '';
             } else {
                 card.style.display = 'none';
             }
         });
-        
+
         // Check if no products are visible
         const visibleProducts = document.querySelectorAll('.product-card[style=""]');
-        if(visibleProducts.length === 0) {
+        if (visibleProducts.length === 0) {
             // Add "no products found" message if it doesn't exist
             let noProductsMsg = document.querySelector('.no-products-msg');
-            if(!noProductsMsg) {
+            if (!noProductsMsg) {
                 noProductsMsg = document.createElement('div');
                 noProductsMsg.className = 'no-products-msg';
                 noProductsMsg.textContent = 'No products match your filters. Try adjusting your selection.';
@@ -179,7 +179,7 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
             // Remove "no products found" message if it exists
             const noProductsMsg = document.querySelector('.no-products-msg');
-            if(noProductsMsg) {
+            if (noProductsMsg) {
                 noProductsMsg.remove();
             }
         }
@@ -188,7 +188,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Get URL parameters and apply filter (MOVED HERE)
     const urlParams = new URLSearchParams(window.location.search);
     const categoryParam = urlParams.get('category');
-    
+
     // If category parameter exists, apply the filter
     if (categoryParam) {
         const checkbox = document.querySelector(`input[name="category"][value="${categoryParam}"]`);
@@ -201,11 +201,11 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Toggle filter sidebar on mobile
-    filterToggle.addEventListener('click', function() {
+    filterToggle.addEventListener('click', function () {
         filterSidebar.classList.toggle('active');
         overlay.classList.toggle('active');
-        
-        if(filterSidebar.classList.contains('active')) {
+
+        if (filterSidebar.classList.contains('active')) {
             filterToggle.innerHTML = '<i class="fas fa-times"></i> Hide Filters';
             document.body.style.overflow = 'hidden';
         } else {
@@ -215,7 +215,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Hide sidebar when clicking overlay
-    overlay.addEventListener('click', function() {
+    overlay.addEventListener('click', function () {
         filterSidebar.classList.remove('active');
         overlay.classList.remove('active');
         filterToggle.innerHTML = '<i class="fas fa-filter"></i> Show Filters';
@@ -226,17 +226,17 @@ document.addEventListener('DOMContentLoaded', function() {
     function updateSliderRange() {
         const minVal = parseInt(minRangeInput.value);
         const maxVal = parseInt(maxRangeInput.value);
-        
+
         if (minVal > maxVal) {
             minRangeInput.value = maxVal;
         }
-        
+
         const percent1 = (minVal / parseInt(minRangeInput.max)) * 100;
         const percent2 = (maxVal / parseInt(maxRangeInput.max)) * 100;
-        
+
         sliderTrack.style.left = percent1 + '%';
         sliderTrack.style.width = (percent2 - percent1) + '%';
-        
+
         minPriceInput.value = minVal;
         maxPriceInput.value = maxVal;
     }
@@ -244,12 +244,12 @@ document.addEventListener('DOMContentLoaded', function() {
     minRangeInput.addEventListener('input', updateSliderRange);
     maxRangeInput.addEventListener('input', updateSliderRange);
 
-    minPriceInput.addEventListener('change', function() {
+    minPriceInput.addEventListener('change', function () {
         minRangeInput.value = Math.min(parseInt(this.value), parseInt(maxPriceInput.value));
         updateSliderRange();
     });
 
-    maxPriceInput.addEventListener('change', function() {
+    maxPriceInput.addEventListener('change', function () {
         maxRangeInput.value = Math.max(parseInt(this.value), parseInt(minPriceInput.value));
         updateSliderRange();
     });
@@ -258,25 +258,25 @@ document.addEventListener('DOMContentLoaded', function() {
     updateSliderRange();
 
     // Apply price filter
-    applyPriceBtn.addEventListener('click', function() {
+    applyPriceBtn.addEventListener('click', function () {
         activeFilters.priceRange = {
             min: parseInt(minPriceInput.value),
             max: parseInt(maxPriceInput.value)
         };
-        
+
         updateActiveFilters();
         filterProducts();
     });
 
     // Category filters
     categoryCheckboxes.forEach(checkbox => {
-        checkbox.addEventListener('change', function() {
-            if(this.checked) {
+        checkbox.addEventListener('change', function () {
+            if (this.checked) {
                 activeFilters.categories.push(this.value);
             } else {
                 activeFilters.categories = activeFilters.categories.filter(cat => cat !== this.value);
             }
-            
+
             updateActiveFilters();
             filterProducts();
         });
@@ -284,40 +284,40 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Badge filters
     badgeCheckboxes.forEach(checkbox => {
-        checkbox.addEventListener('change', function() {
-            if(this.checked) {
+        checkbox.addEventListener('change', function () {
+            if (this.checked) {
                 activeFilters.badges.push(this.value);
             } else {
                 activeFilters.badges = activeFilters.badges.filter(badge => badge !== this.value);
             }
-            
+
             updateActiveFilters();
             filterProducts();
         });
     });
 
     // Product search
-    productSearch.addEventListener('input', function() {
+    productSearch.addEventListener('input', function () {
         activeFilters.search = this.value.toLowerCase().trim();
         filterProducts();
     });
 
     // Clear all filters
-    clearFiltersBtn.addEventListener('click', function() {
+    clearFiltersBtn.addEventListener('click', function () {
         // Reset checkboxes
         categoryCheckboxes.forEach(checkbox => checkbox.checked = false);
         badgeCheckboxes.forEach(checkbox => checkbox.checked = false);
-        
+
         // Reset price range
         minPriceInput.value = 0;
         maxPriceInput.value = 100;
         minRangeInput.value = 0;
         maxRangeInput.value = 100;
         updateSliderRange();
-        
+
         // Reset search
         productSearch.value = '';
-        
+
         // Reset active filters
         activeFilters = {
             categories: [],
@@ -328,26 +328,26 @@ document.addEventListener('DOMContentLoaded', function() {
             },
             search: ''
         };
-        
+
         updateActiveFilters();
         filterProducts();
     });
 
     // Sort products
-    sortSelect.addEventListener('change', function() {
+    sortSelect.addEventListener('change', function () {
         const sortValue = this.value;
         const productsArray = Array.from(productCards);
-        
+
         productsArray.sort((a, b) => {
-            if(sortValue === 'price-low') {
+            if (sortValue === 'price-low') {
                 return parseFloat(a.dataset.price) - parseFloat(b.dataset.price);
-            } else if(sortValue === 'price-high') {
+            } else if (sortValue === 'price-high') {
                 return parseFloat(b.dataset.price) - parseFloat(a.dataset.price);
             }
             // For other sorting options, we would need additional data attributes
             return 0;
         });
-        
+
         // Reappend cards in new order
         productsArray.forEach(card => {
             productGrid.appendChild(card);
@@ -356,11 +356,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Pagination (for demonstration - would need backend for real pagination)
     paginationBtns.forEach(btn => {
-        btn.addEventListener('click', function() {
+        btn.addEventListener('click', function () {
             paginationBtns.forEach(b => b.classList.remove('active'));
             this.classList.add('active');
         });
     });
-    
+
     // Shopping Cart Functionality (already implemented in shoppingcard.js)
 });

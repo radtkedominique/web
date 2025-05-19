@@ -35,7 +35,7 @@
   --shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
   --radius: 8px;
   --transition: all 0.3s ease;
-  
+
   /* Calendar-specific colors */
   --mathe-color: #df0a0a;
   --online-color: #54a0ff;
@@ -95,12 +95,13 @@ table {
 
 @keyframes fadeIn {
   from {
-      opacity: 0;
-      transform: translateY(20px);
+    opacity: 0;
+    transform: translateY(20px);
   }
+
   to {
-      opacity: 1;
-      transform: translateY(0);
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
@@ -177,59 +178,69 @@ footer {
 /* Responsive Styles */
 @media (max-width: 768px) {
   header h1 {
-      font-size: 28px;
+    font-size: 28px;
   }
-  
-  th, td {
-      padding: 12px 8px;
-      font-size: 14px;
+
+  th,
+  td {
+    padding: 12px 8px;
+    font-size: 14px;
   }
-  
+
   /* Ensure the table doesn't break the layout */
   table {
-      width: 100%;
-      table-layout: fixed;
+    width: 100%;
+    table-layout: fixed;
   }
-  
+
   /* Make first column (time) a bit narrower */
-  td:first-child, th:first-child {
-      width: 20%;
+  td:first-child,
+  th:first-child {
+    width: 20%;
   }
-  
+
   /* Make all other columns equal width */
-  th:not(:first-child), td:not(:first-child) {
-      width: 16%;
+  th:not(:first-child),
+  td:not(:first-child) {
+    width: 16%;
   }
 }
 
 @media (max-width: 576px) {
+
   /* For very small screens */
   header h1 {
-      font-size: 24px;
+    font-size: 24px;
   }
-  
-  th, td {
-      padding: 8px 4px;
-      font-size: 12px;
+
+  th,
+  td {
+    padding: 8px 4px;
+    font-size: 12px;
   }
-  
+
   /* Compress time column further */
-  td:first-child, th:first-child {
-      width: 18%;
+  td:first-child,
+  th:first-child {
+    width: 18%;
   }
-  
+
   /* Remove some spacing */
   body {
-      padding: 10px;
+    padding: 10px;
   }
-  
+
   /* Smaller text for class subjects */
-  .mathe, .online, .fach, .lieblingsfach, .frei {
-      font-size: 11px;
+  .mathe,
+  .online,
+  .fach,
+  .lieblingsfach,
+  .frei {
+    font-size: 11px;
   }
-  
+
   /* Make the time format more compact if needed */
   td:first-child {
-      font-size: 11px;
+    font-size: 11px;
   }
 }
